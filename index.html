@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Snowflake library -->
+    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
     <title>Future Lab : Happy Christmas with friends!</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1>Merry Christmas! -From Your friend, Future Lab-</h1>
-    <h2>Happy Christmas with firends!</h2>
-    <p>This christmas letter can be read when more than 2 people come to this card site. :)</p>
-    <p>We can't meet right now, but we can contact one anothers. Invite your friends and read this card together.</p>
-    <div id="counter"></div>
+    <div class="overlay">
+        <div class="overlay-content">
+            <h1>This christmas letter can be read when more than <em>2 people come to this card site. :)</em></h1>
+            <h2>We can't meet right now, but we can contact one anothers. How about meet your friends here?</h2>
+            <div id="counter"></div>
+        </div>
+    </div>
+    <div class="christmas-card">
+        <h1>Merry Christmas! -From Your friend, Future Lab-</h1>
+
+        <h2>Together, winds and snow will become calm.</h2>
+        <h2>Together, we can read christmas card with others.</h2>
+        <h2>Together, we can get through this long black cave.</h2>
+        <h2>Merry Christmas with firends!</h2>
+        <input type="button" value="TEST">
+    </div>
+
+    <!-- <div class="christmas-card"></div> -->
     <script src="./socket.io.js"></script>
-<script src="./front.js"></script>
+    <script src="./snowflake.js"></script>
+    <script src="./front.js"></script>
 </body>
+
 </html>

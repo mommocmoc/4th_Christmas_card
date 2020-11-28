@@ -12,19 +12,20 @@ app.get('/', (req, res) => {
 
 app.use(express.static('public'));
 
-io.on('connection',(socket)=>{
-    console.log(`${socket.id} connected`);
-    // userList.push(socket);
-    ++ userCounter;
+io.on('connection', (socket) => {
+  console.log(`${socket.id} connected`);
+  // userList.push(socket);
+  ++userCounter;
+  console.log(`${userCounter} is here`);
+  socket.emit('user added', userCounter)
+  socket.broadcast.emit('new user added', userCounter);
+  socket.on('disconnect', () => {
+    --userCounter;
     console.log(`${userCounter} is here`);
-    socket.emit('user added', userCounter)
-    socket.broadcast.emit('new user added',userCounter);
-    socket.on('disconnect',()=>{
-        --userCounter;
-        socket.emit('user added', userCounter)
-        console.log(`${socket.id} disconnected`);
-        console.log(`${userCounter} is here`);
-    })
+    socket.broadcast.emit('user left', userCounter)
+    console.log(`${socket.id} disconnected`);
+
+  })
 });
 
 http.listen(3000, () => {
