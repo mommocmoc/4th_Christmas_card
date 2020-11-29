@@ -1,8 +1,8 @@
 var express = require('express')
 var app = express();
 const port = process.env.PORT || 3000
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 var userNameList = {};
 var userCounter = 0;
 var data = {
@@ -49,6 +49,7 @@ io.on('connection', (socket) => {
     delete userNameList[socket.id]
     let userNameString = Object.values(userNameList).toString();
     data.userNum = userCounter;
+    data.userNameList = userNameString;
     socket.broadcast.emit('user left', data)
     //Console
     console.log(`${userCounter} is here`);
@@ -58,6 +59,6 @@ io.on('connection', (socket) => {
   })
 });
 
-http.listen(port, () => {
+server.listen(port, () => {
   console.log(`listening on *:${port}`);
 });

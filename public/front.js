@@ -79,7 +79,6 @@
 
      // Another User Connect
      socket.on('new user added', (data) => {
-         if (isUserNumAdded) return;
          if (isMessageOpened) return;
          let userNum = data.userNum;
          let userNameList = data.userNameList;
