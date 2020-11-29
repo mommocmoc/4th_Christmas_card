@@ -5,8 +5,8 @@ var io = require('socket.io')(http);
 var userNameList = {};
 var userCounter = 0;
 var data = {
-  userNum : userCounter,
-  userNameList: "Hi"
+  userNum: userCounter,
+  userNameList: "No one"
 }
 
 
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 app.use(express.static('public'));
 
 io.on('connection', (socket) => {
-  
+
 
   console.log(`${socket.id} connected`);
   //user가 닉네임 입력하면 실행
@@ -27,6 +27,7 @@ io.on('connection', (socket) => {
     userNameList[socket.id] = userName
     let userNameString = Object.values(userNameList).toString();
     data.userNum = userCounter;
+    data.userNameList = userNameString;
     //Event Handler    
     socket.emit('user added', data)
     socket.broadcast.emit('new user added', data);
@@ -34,14 +35,16 @@ io.on('connection', (socket) => {
     console.log(data);
     console.log(`${userCounter} is here`);
     console.log(`${socket.userName} joined :)`);
-    console.log(userNameList);
+    console.log(userNameString);
   })
- 
+
   // user가 접속 해제하면 실행
   socket.on('disconnect', () => {
-    if(socket.userName === undefined) return
+    if (socket.userName === undefined) return;
     --userCounter;
-    if(userCounter < 0) {userCounter = 0} 
+    if (userCounter < 0) {
+      userCounter = 0
+    }
     delete userNameList[socket.id]
     let userNameString = Object.values(userNameList).toString();
     data.userNum = userCounter;

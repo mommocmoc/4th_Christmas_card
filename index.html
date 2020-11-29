@@ -7,6 +7,7 @@
     <!-- Snowflake library -->
     <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
     <title>Future Lab : Happy Christmas with friends!</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
@@ -21,34 +22,52 @@
             </div>
         </li>
         <div class="overlay content cover">
-        <li class="overlay content">
+            <li class="overlay content">
                 <h1>This christmas letter can be read when more than <em>3 people come to this card site. :)</em></h1>
                 <h2>We can't meet right now, but we can contact one anothers. How about meet your friends here?</h2>
-                <div id="counter" class="alert alert-warning" role="alert"></div>
-        </li>
+                <div id="counter" class="alert alert-warning" role="alert">
+                </div>
+            </li>
         </div>
         <li class="overlay page">
-            
+
         </li>
-        <li class="card page">
-            <h1>Merry Christmas! -From Your friend, Future Lab-</h1>
-            <h2>Together, winds and snow will become calm.</h2>
-            <h2>Together, we can read christmas card with others.</h2>
-            <h2>Together, we can get through this long black cave.</h2>
-            <h2>Merry Christmas with firends!</h2>
-            <input type="button" value="TEST">
+        <li class="christmas page">
+            <div id="users-strings">
+                <h1 id="users">test</h1>
+            </div>
+            <div id="typed-strings">
+                <h2>Together, we can read christmas card with others.
+                    <br>Together, winds and snow will become calm.
+                    <br>Together, we can get through this long black cave.
+                    <br>Merry Christmas with friends!
+                    <br>
+                    <br>From Your friend, Future Lab</h2>
+            </div>
+            <div class="info container">
+                <a class="twitter-share-button col-12" href="https://twitter.com/intent/tweet" data-size="large"
+                    data-text="Happy Christmas! I got this card from Smilegate Future Lab."
+                    data-hashtags="futurelab,christmas" , data-via="JaehwanSo">
+                    Tweet</a>
+                <span> turn on the sound pleas :)</span>
+            </div>
+            <div class="center">
+                <div id="dear" class="h1"></div>
+                <div id="typed" class="h2"></div>
+            </div>
         </li>
     </ul>
 
-    <!-- <div class="christmas-card"></div> -->
-
+    <!-- JS library -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.core.min.js"></script>
     <script src="./socket.io.js"></script>
-    <!-- <script src="./snowflake.js"></script> -->
     <script src="./front.js"></script>
 </body>
 
